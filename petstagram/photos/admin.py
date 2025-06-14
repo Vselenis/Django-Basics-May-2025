@@ -7,8 +7,8 @@ from photos.models import Photo
 
 @admin.register(Photo)
 class PhotoAdmin(admin.ModelAdmin):
-    last_display = ['id',
-                    'tagged_pets',
+    list_display = ['id',
+                    'get_tagged_pets',
                     'date_of_publication',
                     'description']
 

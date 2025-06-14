@@ -8,7 +8,7 @@ from typing import Optional
 
 @deconstructible
 class FileSizeValidator:
-    def __init__(self, file_size_limit: int, message: Optional[str]):
+    def __init__(self, file_size_limit: int, message: Optional[str] = None):
         self.file_size_limit = file_size_limit
         self.message = message
 
