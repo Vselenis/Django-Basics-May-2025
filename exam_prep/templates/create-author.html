@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Create Author's Profile Form (Only if no author's profile has been created) -->
+    <section id="register">
+        <div class="form">
+            <h2>Create Author's Profile</h2>
+
+            <form class="register-form" method="post" action="">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div>
+                    <label for="{{ form.first_name.id_for_label }}">First Name:</label>
+
+                    {{ form.first_name }}
+                    {{ form.first_name.errors }}
+
+                </div>
+
+                <div>
+                    <label for="{{ form.last_name.id_for_label }}">Last Name:</label>
+
+                    {{ form.last_name }}
+                    {{ form.last_name.errors }}
+
+                </div>
+
+                <div>
+                    <label for="{{ form.passcode.id_for_label }}">Passcode:</label>
+
+                    <div class="helptext" id="id_passcode_helptext">
+                        Your passcode must be a combination of 6 digits
+                    </div>
+
+                    {{ form.passcode }}
+                    {{ form.passcode.errors }}
+                </div>
+                <div>
+                    <label for="{{ form.info.id_for_label }}">Info:</label>
+                    {{ form.info }}
+                    {{ form.info.errors }}
+                </div>
+                <div>
+
+                    <label for="{{ form.pets_number.id_for_label }}">Pets Number:</label>
+                    {{ form.pets_number }}
+                    {{ form.pets_number.errors }}
+                    <!-- form button -->
+                    <button type="submit">Create</button>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}
