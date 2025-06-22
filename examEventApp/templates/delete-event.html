@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+
+            <!-- Delete Event Form -->
+            <section id="delete">
+
+                <div class="form">
+                    <h2>Delete Event</h2>
+                    <form class="edit-form" method="post" action="">
+                        {% csrf_token %}
+                        <div>
+                            <label for="id_slogan">Slogan:</label>
+                           {{ form.slogan }}
+
+                        </div>
+
+                        <div>
+                            <label for="id_location">Location:</label>
+                            {{ form.location }}
+
+                        </div>
+
+                        <div>
+                            <label for="id_start_time">Event Date/Time:</label>
+                            {{ form.start_time }}
+                        </div>
+
+                        <div>
+                            <label for="id_available_tickets">Available Tickets:</label>
+                            {{ form.available_tickets }}
+
+                        </div>
+
+                        <div>
+                            <label for="id_key_features">Event Key Features:</label>
+                            {{ form.key_features }}
+
+                        </div>
+
+                        <div>
+                            <label for="id_banner_url">Event Banner URL:</label>
+                            {{ form.banner_url }}
+                        </div>
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+
+            </section>
+
+
+{% endblock %}

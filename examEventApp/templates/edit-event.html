@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+
+            <!-- Edit Event Form -->
+            <section id="edit">
+                <div class="form">
+                    <h2>Edit Event</h2>
+                    <form class="edit-form" method="post" action="">
+                        {% csrf_token %}
+                        <div>
+                            <label for="id_slogan">Slogan:</label>
+                            {{ form.slogan }}
+                            {% for error in form.slogan.errors %}
+                                <div class="error">{{ error }}</div>
+                            {% endfor %}
+
+                        </div>
+
+                        <div>
+                            <label for="id_location">Location:</label>
+                            {{ form.location }}
+                            {% for error in form.location.errors %}
+                                <div class="error">{{ error }}</div>
+                            {% endfor %}
+
+                        </div>
+
+                        <div>
+                            <label for="id_start_time">Event Date/Time:</label>
+                            {{ form.start_time }}
+                            {% for error in form.start_time.errors %}
+                                <div class="error">{{ error }}</div>
+                            {% endfor %}
+
+                        </div>
+
+                        <div>
+                            <label for="id_available_tickets">Available Tickets:</label>
+                            {{ form.available_tickets }}
+                            {% for error in form.available_tickets.errors %}
+                                <div class="error">{{ error }}</div>
+                            {% endfor %}
+
+                        </div>
+
+                        <div>
+                            <label for="id_key_features">Event Key Features:</label>
+                            {{ form.key_features }}
+                            {% for error in form.key_features.errors %}
+                                <div class="error">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <div>
+                            <label for="id_banner_url">Event Banner URL:</label>
+                            {{ form.banner_url }}
+                            {% for error in form.banner_url.errors %}
+                                <div class="error">{{ error }}</div>
+                            {% endfor %}
+
+                        </div>
+
+                        <button type="submit">Edit</button>
+                    </form>
+                </div>
+            </section>
+{% endblock %}

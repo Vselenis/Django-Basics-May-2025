@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+            <!-- Create Organizer's Profile Form (Only if no organizer's profile has been created) -->
+            <section id="register">
+                <div class="form">
+                    <h2>New Organizer's Profile</h2>
+                    <form class="register-form" method="post" action="">
+                        {% csrf_token %}
+                        <div>
+                            <label for="id_company_name">Company Name:</label>
+                            <div class="helptext" id="id_company_name_helptext">*Allowed names contain letters, digits,
+                                spaces, and hyphens.</div>
+                                {{ form.company_name }}
+                                {% for error in form.company_name.errors %}
+                                    <div class="error">{{ error }}</div>
+                                {% endfor %}
+                        </div>
+
+                        <div>
+                            <label for="id_phone_number">Phone Number:</label>
+                                {{ form.phone_number }}
+                                {% for error in form.phone_number.errors %}
+                                    <div class="error">{{ error }}</div>
+                                {% endfor %}
+                        </div>
+
+                        <div>
+                            <label for="id_secret_key">Secret Key:</label>
+                            <div class="helptext" id="id_secret_key_helptext">*Pick a combination of 4 unique digits.
+                            </div>
+
+                                {{ form.secret_key }}
+                                {% for error in form.secret_key.errors %}
+                                    <div class="error">{{ error }}</div>
+                                {% endfor %}
+
+                        </div>
+                        <button type="submit">Create</button>
+
+                    </form>
+                </div>
+            </section>
+
+{% endblock %}
